@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.caesar.adsdkdemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:name=".BaseApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".AdActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".BannerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DownLoadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InnerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NativActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NativeExpressAdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".VedioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebAt"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".MultiAdActivity"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.caesar.adsdkdemo.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <service android:name="com.hhmt.comm.download.DownloadService" />
+
+        <activity
+            android:name="com.hhmt.ad.WebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+
+        <provider
+            android:name="com.hhmt.comm.download.DownloadTaskProvider"
+            android:authorities="com.caesar.adsdkdemo.download" />
+
+        <meta-data
+            android:name="InstallChannel"
+            android:value="testDemo" />
+
+        <activity android:name=".FloatActivity"/>
+    </application>
+
+</manifest>
