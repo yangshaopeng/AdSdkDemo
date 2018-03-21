@@ -16,7 +16,7 @@ public class InnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inner);
 
-        final InnerAD innerAD = new InnerAD(InnerActivity.this, "13433242342", AdPosIdConfig.INNER_POS_ID);
+        final InnerAD innerAD = new InnerAD(InnerActivity.this, "13433242342", AdConfig.INNER_POS_ID);
 
         innerAD.setADListener(new AbsInnerAdListener() {
 

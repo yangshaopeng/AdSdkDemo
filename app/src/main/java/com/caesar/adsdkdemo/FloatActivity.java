@@ -2,6 +2,8 @@ package com.caesar.adsdkdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.hhmt.ad.AdError;
 import com.hhmt.ad.floatad.AbsFloatAdListener;
@@ -9,16 +11,19 @@ import com.hhmt.ad.floatad.FloatAd;
 
 public class FloatActivity extends AppCompatActivity {
 
+    private FrameLayout floatContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_float);
-
-        final FloatAd floatAd = new FloatAd(this, "appid", "hhmtsp000002", 100, 300);
+        floatContainer = (FrameLayout) findViewById(R.id.float_container);
+        final FloatAd floatAd = new FloatAd(this, "appid", "hhmtsp000002");
         floatAd.setFloatAdListener(new AbsFloatAdListener() {
             @Override
             public void onADReceive() {
                 //floatAd.showAsPopupWindow();
+                floatContainer.addView(floatAd.getFloatView());
             }
 
             @Override
@@ -48,7 +53,7 @@ public class FloatActivity extends AppCompatActivity {
 
             @Override
             public void onADClosed() {
-
+                floatContainer.setVisibility(View.GONE);
             }
         });
 

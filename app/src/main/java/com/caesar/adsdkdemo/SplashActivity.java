@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,7 +54,7 @@ public class SplashActivity extends AppCompatActivity implements SplashADListene
             checkAndRequestPermission();
         } else {
             // 如果是Android6.0以下的机器，默认在安装时获得了所有权限，可以直接调用SDK
-            fetchSplashAD(this, container, skipView, "sdafs", AdPosIdConfig.SPLASH_POS_ID, this, 0);
+            fetchSplashAD(this, container, skipView, "sdafs", AdConfig.SPLASH_POS_ID, this, 0);
         }
 
     }
@@ -130,7 +131,7 @@ public class SplashActivity extends AppCompatActivity implements SplashADListene
 
         // 权限都已经有了，那么直接调用SDK
         if (lackedPermission.size() == 0) {
-            fetchSplashAD(this, container, skipView, "sdfsafs", AdPosIdConfig.SPLASH_POS_ID, this, 0);
+            fetchSplashAD(this, container, skipView, "sdfsafs", AdConfig.SPLASH_POS_ID, this, 0);
         } else {
             // 请求所缺少的权限，在onRequestPermissionsResult中再看是否获得权限，如果获得权限就可以调用SDK，否则不要调用SDK。
             String[] requestPermissions = new String[lackedPermission.size()];
@@ -145,7 +146,7 @@ public class SplashActivity extends AppCompatActivity implements SplashADListene
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == 1024 && hasAllPermissionsGranted(grantResults)) {
-            fetchSplashAD(this, container, skipView, "dfsa", AdPosIdConfig.SPLASH_POS_ID, this, 0);
+            fetchSplashAD(this, container, skipView, "dfsa", AdConfig.SPLASH_POS_ID, this, 0);
         } else {
             // 如果用户没有授权，那么应该说明意图，引导用户去设置里面授权。
             Toast.makeText(this, "应用缺少必要的权限！请点击\"权限\"，打开所需要的权限。", Toast.LENGTH_LONG).show();

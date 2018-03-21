@@ -49,7 +49,7 @@ public class BannerActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initBanner() {
-        this.bv = new BannerView(this, "34234324", AdPosIdConfig.BANNER_POS_ID);
+        this.bv = new BannerView(this, "34234324", AdConfig.BANNER_POS_ID);
         // 注意：如果开发者的banner不是始终展示在屏幕中的话，请关闭自动刷新，否则将导致曝光率过低。
         // 并且应该自行处理：当banner广告区域出现在屏幕后，再手动loadAD。
         //bv.setRefresh(30);

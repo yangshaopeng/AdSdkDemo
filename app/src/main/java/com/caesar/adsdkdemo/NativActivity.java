@@ -66,7 +66,7 @@ public class NativActivity extends AppCompatActivity implements NativeAdListener
 
     private void loadAd() {
         List<String> posList = new ArrayList<>();
-        posList.add(AdPosIdConfig.NATIVE_POS_ID);
+        posList.add(AdConfig.NATIVE_POS_ID);
         if (ad == null) {
             ad = new NativeAD(NativActivity.this, "fsafda", posList);
             ad.setNativeAdListener(this);

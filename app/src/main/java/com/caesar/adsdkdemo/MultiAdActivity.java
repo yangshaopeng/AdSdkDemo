@@ -28,9 +28,9 @@ public class MultiAdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_multi_ad);
         bannerContainer = (FrameLayout) findViewById(R.id.bannerContainer);
         posIdList = new ArrayList<>();
-        posIdList.add(AdPosIdConfig.INNER_POS_ID);
-        posIdList.add(AdPosIdConfig.BANNER_POS_ID);
-        posIdList.add(AdPosIdConfig.FLOAT_POS_ID);
+        posIdList.add(AdConfig.INNER_POS_ID);
+        posIdList.add(AdConfig.BANNER_POS_ID);
+        posIdList.add(AdConfig.FLOAT_POS_ID);
         /**
          * 最后两个参数是显示浮窗的坐标，如果没有浮窗广告的话则传入空字符串即可。
          */
