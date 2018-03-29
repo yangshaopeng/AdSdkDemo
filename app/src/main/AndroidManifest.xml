@@ -70,7 +70,8 @@
 
         <activity
             android:name="com.hhmt.ad.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"/>
 
         <provider
             android:name="com.hhmt.comm.download.DownloadTaskProvider"
