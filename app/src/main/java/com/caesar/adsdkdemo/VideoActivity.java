@@ -14,7 +14,7 @@ import java.util.Formatter;
 import java.util.List;
 import java.util.Locale;
 
-public class VedioActivity extends AppCompatActivity implements NativeMediaAD.NativeMediaADListener {
+public class VideoActivity extends AppCompatActivity implements NativeMediaAD.NativeMediaADListener {
 
     private MediaView mediaView;
     private TextView progress;
@@ -50,15 +50,15 @@ public class VedioActivity extends AppCompatActivity implements NativeMediaAD.Na
 
     @Override
     public void onADStatusChanged(NativeMediaADData nativeMediaADData) {
-        Log.i("yang", "VedioActivity onADStatusChanged");
+        Log.i("yang", "VideoActivity onADStatusChanged");
         progress.setText("进度->" + formatTime(nativeMediaADData.getCurrentPosition()));
 
-        Log.d("VedioActivity", "nativeMediaADData.getProgress():" + nativeMediaADData.getProgress());
+        Log.d("VideoActivity", "nativeMediaADData.getProgress():" + nativeMediaADData.getProgress());
     }
 
     @Override
     public void onADError(NativeMediaADData nativeMediaADData, AdError adError) {
-        Log.i("yang", "VedioActivity onADError： " + adError.getErrorMsg());
+        Log.i("yang", "VideoActivity onADError： " + adError.getErrorMsg());
     }
 
     private NativeMediaADData nativeMediaADData;
@@ -70,7 +70,7 @@ public class VedioActivity extends AppCompatActivity implements NativeMediaAD.Na
      */
     @Override
     public void onADVideoLoaded(NativeMediaADData nativeMediaADData) {
-        Log.i("yang", "VedioActivity onADVideoLoaded");
+        Log.i("yang", "VideoActivity onADVideoLoaded");
         if (nativeMediaADData != null) {
             this.nativeMediaADData = nativeMediaADData;
             nativeMediaADData.bindView(mediaView, false);
@@ -80,12 +80,12 @@ public class VedioActivity extends AppCompatActivity implements NativeMediaAD.Na
 
     @Override
     public void onADExposure(NativeMediaADData nativeMediaADData) {
-        Log.i("yang", "VedioActivity onADExposure");
+        Log.i("yang", "VideoActivity onADExposure");
     }
 
     @Override
     public void onADClicked(NativeMediaADData nativeMediaADData) {
-        Log.i("yang", "VedioActivity onADClicked");
+        Log.i("yang", "VideoActivity onADClicked");
     }
 
 

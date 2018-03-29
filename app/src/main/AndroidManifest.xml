@@ -48,7 +48,7 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".VedioActivity"
+            android:name=".VideoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WebAt"

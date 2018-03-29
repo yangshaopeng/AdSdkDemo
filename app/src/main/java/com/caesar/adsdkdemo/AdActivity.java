@@ -78,7 +78,7 @@ public class AdActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // 原生广告 模板示例
-                startActivity(new Intent(AdActivity.this, VedioActivity.class));
+                startActivity(new Intent(AdActivity.this, VideoActivity.class));
             }
         });
 
