@@ -101,7 +101,7 @@ public class BannerActivity extends AppCompatActivity implements View.OnClickLis
     private void doCloseBanner() {
         bannerContainer.removeAllViews();
         if (bv != null) {
-//            bv.destroy();
+            bv.destroy();
             bv = null;
         }
     }
