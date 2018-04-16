@@ -136,7 +136,7 @@ onADTick(long time)  广告倒计时回调，返回剩余的时间。
 ###2.4.原生广告
 ####2.4.1.主要代码示例
 	if (ad == null) {
-        ad = new NativeAD(NativActivity.this, "2132432142", "432142314");
+        ad = new NativeAD(NativeActivity.this, "2132432142", "432142314");
         ad.setNativeAdListener(this);
     }
     ad.loadAd(1);  //参数为每次拉去的广告数量。

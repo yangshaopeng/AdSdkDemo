@@ -32,29 +32,18 @@
             android:name=".BannerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DownLoadActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".InnerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".NativActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".NativeExpressAdActivity"
+            android:name=".NativeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
-            android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".VideoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".WebAt"
-            android:screenOrientation="portrait" />
 
-        <activity android:name=".MultiAdActivity"/>
+        <activity android:name=".FloatActivity"
+            android:screenOrientation="portrait"
+            />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -75,13 +64,12 @@
 
         <provider
             android:name="com.hhmt.comm.download.DownloadTaskProvider"
-            android:authorities="com.caesar.adsdkdemo.download" />
+            android:authorities="${applicationId}.download" />
 
         <meta-data
             android:name="InstallChannel"
             android:value="testDemo" />
 
-        <activity android:name=".FloatActivity"></activity>
     </application>
 
 </manifest>

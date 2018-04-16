@@ -3,11 +3,13 @@ package com.caesar.adsdkdemo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 import com.hhmt.ad.AdError;
 import com.hhmt.ad.inner.AbsInnerAdListener;
 import com.hhmt.ad.inner.InnerAD;
+
+import static com.caesar.adsdkdemo.AdConfig.APP_ID;
+import static com.caesar.adsdkdemo.AdConfig.LOG_TAG;
 
 public class InnerActivity extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class InnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inner);
 
-        final InnerAD innerAD = new InnerAD(InnerActivity.this, "13433242342", AdConfig.INNER_POS_ID);
+        final InnerAD innerAD = new InnerAD(InnerActivity.this, APP_ID, AdConfig.INNER_POS_ID);
 
         innerAD.setADListener(new AbsInnerAdListener() {
 
@@ -26,7 +28,7 @@ public class InnerActivity extends AppCompatActivity {
             @Override
             public void onADReceive() {
                 innerAD.showAsPopupWindow();
-                Log.i("InnerActivity: ", "onADReceive");
+                Log.i(LOG_TAG, "onADReceive");
             }
 
             /**
@@ -35,37 +37,21 @@ public class InnerActivity extends AppCompatActivity {
              */
             @Override
             public void onNoAD(AdError var1) {
-                Log.i("InnerActivity: ", var1.getErrorMsg());
+                Log.e(LOG_TAG, "code: " + var1.getErrorCode() + "");
+                Log.e(LOG_TAG, "msg : " + var1.getErrorMsg());
             }
 
             @Override
             public void onADClosed() {
-
+                Log.i(LOG_TAG, "inner close");
             }
 
             @Override
             public void onADClicked() {
-                Log.i("yang: ", "inner click");
+                Log.i(LOG_TAG, "inner click");
             }
         });
         innerAD.loadAD();
-
-
-        findViewById(R.id.load).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                innerAD.loadAD();
-
-            }
-        });
-
-        findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                innerAD.closePopupWindow();
-            }
-        });
 
     }
 }

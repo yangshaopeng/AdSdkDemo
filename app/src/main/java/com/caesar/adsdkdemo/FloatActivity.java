@@ -2,12 +2,17 @@ package com.caesar.adsdkdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.hhmt.ad.AdError;
 import com.hhmt.ad.floatad.AbsFloatAdListener;
 import com.hhmt.ad.floatad.FloatAd;
+
+import static com.caesar.adsdkdemo.AdConfig.APP_ID;
+import static com.caesar.adsdkdemo.AdConfig.FLOAT_POS_ID;
+import static com.caesar.adsdkdemo.AdConfig.LOG_TAG;
 
 public class FloatActivity extends AppCompatActivity {
 
@@ -18,17 +23,18 @@ public class FloatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_float);
         floatContainer = (FrameLayout) findViewById(R.id.float_container);
-        final FloatAd floatAd = new FloatAd(this, "appid", "hhmtsp000002");
+        final FloatAd floatAd = new FloatAd(this, APP_ID, FLOAT_POS_ID);
         floatAd.setFloatAdListener(new AbsFloatAdListener() {
             @Override
             public void onADReceive() {
-                //floatAd.showAsPopupWindow();
+                Log.e(LOG_TAG, "onADReceive");
                 floatContainer.addView(floatAd.getFloatView());
             }
 
             @Override
             public void onNoAD(AdError var1) {
-
+                Log.e(LOG_TAG, "code: " + var1.getErrorCode());
+                Log.e(LOG_TAG, "msg : " + var1.getErrorMsg());
             }
 
             @Override
@@ -43,7 +49,7 @@ public class FloatActivity extends AppCompatActivity {
 
             @Override
             public void onADClicked() {
-
+                Log.e(LOG_TAG, "onADClicked");
             }
 
             @Override
@@ -53,6 +59,7 @@ public class FloatActivity extends AppCompatActivity {
 
             @Override
             public void onADClosed() {
+                Log.e(LOG_TAG, "float close");
                 floatContainer.setVisibility(View.GONE);
             }
         });

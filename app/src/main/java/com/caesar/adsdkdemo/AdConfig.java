@@ -15,7 +15,10 @@ public class AdConfig {
     public static String INNER_POS_ID = BuildConfig.IS_FORMAL ?  "gdtlhhhcp907013" : "gdtcscp702032";
     public static String SPLASH_POS_ID = BuildConfig.IS_FORMAL ? "gdtlhhhkp300083" : "gdtcskp203012";
     public static String NATIVE_POS_ID = BuildConfig.IS_FORMAL ? "gdtlhhhys607023" : "gdtcsys209022";
-    public static String VIDEO_POS_ID = "hhmtsp000001";
     public static String FLOAT_POS_ID = "hhmtsp000002";
+
+    public static String APP_ID = "package_name";
+
+    public static String LOG_TAG = "hhmt_ad: ";
 
 }

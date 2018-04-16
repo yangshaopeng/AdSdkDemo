@@ -2,11 +2,9 @@ package com.caesar.adsdkdemo;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 
 /**
  * author    : yangshaopeng
@@ -19,31 +17,7 @@ import android.support.v4.content.ContextCompat;
 
 public class PermissionUtil {
 
-    public static final int REQ_CAMERA_CODE = 1;
     public static final int REQ_STORAGE_CODE = 2;
-    public static final int REQ_LOCATION_CODE = 3;
-
-    /**
-     * 动态申请相机权限。
-     *
-     * @param activity 申请的Activity。
-     */
-    public static void requestCameraPermission(final Activity activity) {
-        if (needDynamicRequest()) {
-            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager
-                    .PERMISSION_GRANTED) {
-                //标明用户没有禁止弹出权限请求。
-                if (!ActivityCompat.shouldShowRequestPermissionRationale(activity,
-                        Manifest.permission.CAMERA)) {
-                    ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA}, REQ_CAMERA_CODE);
-                }
-            } else {
-                openCamera(activity);
-            }
-        } else {
-            openCamera(activity);
-        }
-    }
 
     /**
      * 判断是否需要动态申请
@@ -52,18 +26,6 @@ public class PermissionUtil {
      */
     private static boolean needDynamicRequest() {
         return Build.VERSION.SDK_INT >= 23;
-    }
-
-    /**
-     * 打开相机
-     *
-     * @param activity 调用的 Activity。
-     */
-    public static void openCamera(Activity activity) {
-        Intent intent = new Intent();
-        intent.setAction("android.media.action.STILL_IMAGE_CAMERA");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
     }
 
     /**

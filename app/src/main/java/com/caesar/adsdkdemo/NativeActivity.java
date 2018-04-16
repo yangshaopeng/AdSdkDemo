@@ -14,26 +14,22 @@ import com.hhmt.ad.nativ.NativeAdListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
+import static com.caesar.adsdkdemo.AdConfig.APP_ID;
+import static com.caesar.adsdkdemo.AdConfig.LOG_TAG;
 
 
-public class NativActivity extends AppCompatActivity implements NativeAdListener {
+public class NativeActivity extends AppCompatActivity implements NativeAdListener {
 
-    public static List<String> urls = new ArrayList<>();
     private NativeAD ad;
     NativeADDataRef nativeADDataRef;
 
-    static {
-
-        urls.add("http://file.anruan.com/soft/7/android_7993.apk");
-        urls.add("http://file.anruan.com/soft/7/android_7993.apk");
-
-    }
-
     TextView tvprogress;
-    int downX;
-    int downY;
-    int upX;
-    int upY;
+    private int downX;
+    private int downY;
+    private int upX;
+    private int upY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +64,7 @@ public class NativActivity extends AppCompatActivity implements NativeAdListener
         List<String> posList = new ArrayList<>();
         posList.add(AdConfig.NATIVE_POS_ID);
         if (ad == null) {
-            ad = new NativeAD(NativActivity.this, "fsafda", posList);
+            ad = new NativeAD(NativeActivity.this, APP_ID, posList);
             ad.setNativeAdListener(this);
         }
         ad.loadAd(12);
@@ -91,10 +87,10 @@ public class NativActivity extends AppCompatActivity implements NativeAdListener
                 }
             });
             nativeADDataRef.onExposured(findViewById(R.id.progress));
-            Log.i("NativeActivity: ", nativeADDataRef.getTitle());
-            Log.i("NativeActivity: ", nativeADDataRef.getDesc());
-            Log.i("NativeActivity: ", nativeADDataRef.getIconUrl());
-            Log.i("NativeActivity: ", nativeADDataRef.getImgUrl());
+            Log.i(LOG_TAG, nativeADDataRef.getTitle());
+            Log.i(LOG_TAG, nativeADDataRef.getDesc());
+            Log.i(LOG_TAG, nativeADDataRef.getIconUrl());
+            Log.i(LOG_TAG, nativeADDataRef.getImgUrl());
         }
     }
 
@@ -105,8 +101,8 @@ public class NativActivity extends AppCompatActivity implements NativeAdListener
      */
     @Override
     public void onNoAD(AdError adError) {
-        Log.d("NativActivity", "adError.getErrorCode():" + adError.getErrorCode());
-        Log.d("NativActivity", adError.getErrorMsg());
+        Log.d(LOG_TAG, "code: " + adError.getErrorCode());
+        Log.d(LOG_TAG, "msg : " + adError.getErrorMsg());
     }
 
     /**
@@ -120,9 +116,8 @@ public class NativActivity extends AppCompatActivity implements NativeAdListener
     }
 
     @Override
-    public void onADError(NativeADDataRef nativeADDataRef, AdError adError) {
-
+    public void onADError(AdError adError) {
+        Log.e(LOG_TAG, "msg : " + adError.getErrorMsg());
+        Log.e(LOG_TAG, "code: " + adError.getErrorCode() + "");
     }
-
-
 }

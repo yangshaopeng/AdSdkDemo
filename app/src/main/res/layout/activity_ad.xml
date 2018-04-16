@@ -6,96 +6,45 @@
     android:orientation="vertical"
     tools:context=".AdActivity">
 
-
-    <com.caesar.adsdkdemo.MyScrollView
+    <Button
+        android:id="@+id/bt_net"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="50dp"
+        android:text="测试网络"
+        android:visibility="gone" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <Button
+        android:id="@+id/bt_banner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="banner" />
 
 
-            <Button
-                android:id="@+id/bt_net"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="测试网络"
-                android:visibility="gone" />
+    <Button
+        android:id="@+id/bt_chaping"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="插屏" />
+
+    <Button
+        android:id="@+id/bt_splash"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="闪屏" />
 
 
-            <Button
-                android:id="@+id/bt_banner"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="banner" />
+    <Button
+        android:id="@+id/bt_native"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="原生" />
 
-
-            <Button
-                android:id="@+id/bt_chaping"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="插屏" />
-
-            <Button
-                android:id="@+id/bt_splash"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="闪屏" />
-
-
-            <Button
-                android:id="@+id/bt_native"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="原生" />
-
-
-            <Button
-                android:id="@+id/bt_img"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="图片测试" />
-
-
-            <Button
-                android:id="@+id/bt_native_express"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="原生广告 末班渲染" />
-
-            <Button
-                android:id="@+id/bt_native_video"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="原生广告 视频" />
-
-            <Button
-                android:id="@+id/bt_float"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="浮窗" />
-
-            <Button
-                android:id="@+id/multi_ad"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="请求多个广告" />
-
-
-            <Button
-                android:id="@+id/bt_download"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="测试下载"
-                android:visibility="gone" />
-
-        </LinearLayout>
-
-
-    </com.caesar.adsdkdemo.MyScrollView>
+    <Button
+        android:id="@+id/bt_float"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="浮窗" />
 
 
 </LinearLayout>
