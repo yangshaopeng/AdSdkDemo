@@ -17,10 +17,7 @@ public class AdActivity extends AppCompatActivity {
         /**
          * sdk大于23，要动态申请权限，否则无法正常下载apk。
          */
-        if (Build.VERSION.SDK_INT >= 23) {
-            PermissionUtil.requestStoragePermission(this);
-            PermissionUtil.requestLocalPermission(this);
-        }
+        PermissionUtil.dynamicRequestPermission(this);
         findViewById(R.id.bt_banner).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

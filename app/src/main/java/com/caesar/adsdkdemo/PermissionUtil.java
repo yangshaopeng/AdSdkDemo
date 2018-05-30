@@ -33,33 +33,17 @@ public class PermissionUtil {
      *
      * @param activity
      */
-    public static void requestStoragePermission(Activity activity) {
+    public static void dynamicRequestPermission(Activity activity) {
         String[] wrPermission = {Manifest.permission.READ_EXTERNAL_STORAGE
-                , Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                , Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.INSTALL_PACKAGES,
+                Manifest.permission.ACCESS_FINE_LOCATION};
         if (needDynamicRequest()) {
-            if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                    || ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(activity, wrPermission, REQ_STORAGE_CODE);
-            }
+            ActivityCompat.requestPermissions(activity, wrPermission, REQ_STORAGE_CODE);
         }
     }
 
-    /**
-     * 获取定位权限。
-     *
-     * @param activity
-     */
-    public static void requestLocalPermission(Activity activity) {
-        String[] localPermission = {Manifest.permission.ACCESS_COARSE_LOCATION
-                , Manifest.permission.ACCESS_FINE_LOCATION};
-        if (needDynamicRequest()) {
-            if (needDynamicRequest()) {
-                if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                        || ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(activity, localPermission, REQ_STORAGE_CODE);
-                }
-            }
-        }
-    }
 
 }
